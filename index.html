@@ -4,33 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./style/style.css  ">
+    <title>VatRandom</title>
+    <link rel="icon" href="./img/icon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css  ">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
-    <script src="./script.js"></script>
-    <div class="container">
-        <div class="super-box">
-            <header>
-                <h1>Lorem ipsum dolor sit amet.</h1>
-            </header>
-            <main>
-            </main>
-            <footer>
-                <span>
-                    <span class="copy-left-icon">
-                        <i class='bx bx-copyright'></i>
-                        COPY LEFT; GNU GPL V3
-                    </span>                
-                </span>
-                <span>
-                    <a href="https://github.com/Vatislo">Developer</a>
-                </span>
-            </footer>
+    <header>
+        <span>
+            <span class="copy-left-icon">
+                <i class='bx bx-copyright'></i>
+                COPY LEFT; GNU GPL V3
+            </span>
+        </span>
+        <span>
+            <a href="https://github.com/Vatislo">Разработчик</a>
+        </span>
+    </header>
+    <main>
+        <div class="control-panel container">
+            <form>
+                <div class="number">
+                    (;
+                </div>
+                <div class="max-min">
+                    <input id="min-num" type="text" placeholder="Минимальное число">
+                    <input id="max-num" type="text" placeholder="Максимальное число">
+                </div>
+                <button id="random-button" type="button">ЗГЕНЕРИРОВАТЬ</button>
+            </form>
         </div>
-    </div>
+    </main>
+    <script src="./script.js"> </script>
 </body>
 
 </html>

@@ -1,61 +1,57 @@
 const body = document.body
-
-    function getCustomDate() {
-
-        let month = new Date().getMonth() + 1
-
-        if (month < 9) {
-            month += 12
-        }
-
-        month -= 8
-
-        return {
-            month
-        }
-    }
-    
-    const customDate = getCustomDate()
-    console.log(`Текущая мясяц от сентября: ${customDate.month}`)
-
+const randomButton = document.getElementById('random-button')
+const bodyBackList = [
+    "autumnSeptember",
+    "autumnOctober",
+    "autumnNovember",
+    "winterDecember",
+    "winterJanuary",
+    "winterFebruary",
+    "springMarch",
+    "springApril",
+    "springMay",
+    "summerWTF",
+]
 let bodyBackImg
 
-if(customDate.month === 1)  {
-    bodyBackImg = "autumnSeptember"  
-} else if(customDate.month === 2)  {
-    bodyBackImg = "autumnOctober"  
-} else if(customDate.month === 3)  {
-    bodyBackImg = "autumnNovember"  
-} else if(customDate.month === 4)  {
-    bodyBackImg = "winterDecember"  
-} else if(customDate.month === 5)  {
-    bodyBackImg = "winterJanuary"  
-} else if(customDate.month === 6)  {
-    bodyBackImg = "winterFebruary"  
-} else if(customDate.month === 7)  {
-    bodyBackImg = "springMarch"  
-} else if(customDate.month === 8)  {
-    bodyBackImg = "springApril" 
-} else if(customDate.month === 9)  {
-    bodyBackImg = "springMay"  
-} else if(customDate.month > 9)  {
-    bodyBackImg = "summerWTF"  
+function getCustomDate() {
+    let month = new Date().getMonth()
+    if (month < 9) { month += 12 }
+    month -= 8
+    return { month }
+}
+const customDate = getCustomDate()
+
+for (let i = 0; i < bodyBackList.length; i = i + 1) {
+    if (customDate.month === i) {
+        bodyBackImg = bodyBackList[i]
+        break
+    }
 }
 
-body.style.backgroundImage = `url('./img/${bodyBackImg}.jpg')`;ы
+body.style.backgroundImage = `url('./img/${bodyBackImg}.jpg')`
 
+function getRandomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
+document.getElementById('random-button').addEventListener('click', function() {
+    const minNum = document.getElementById('min-num').value;
+    const maxNum = document.getElementById('max-num').value;
 
+    const minNumValue = parseInt(minNum, 10);
+    const maxNumValue = parseInt(maxNum, 10);
+    if (isNaN(minNumValue) || isNaN(maxNumValue) || minNumValue >= maxNumValue) {
+        alert('Самый умный?');
+        return;
+    }
 
-// const logicalLaws = [
-//     "Любое утверждение равно себе. То есть, если утверждение истинно, то оно всегда будет истинным, и если оно ложно, то оно всегда будет ложным; A ↔ A",
-//     "Утверждение и его отрицание не могут быть истинными одновременно. Если утверждение истинно, то его отрицание ложно, и наоборот; ¬ ( A ∧ ¬ A )",
-//     "Любое утверждение либо истинно, либо ложно. Нет промежуточного состояния между истинностью и ложностью; A ∨ ¬ A",
-//     "Каждое истинное утверждение имеет достаточную причину для своей истинности. Другими словами, если что-то истинно, то должно быть объяснение, почему это так"
-// ]
-// logicalLawsRandom = Math.floor(Math.random() * logicalLaws.length);
-// // console.log(logicalLawsRandom + 1)
-// console.log(logicalLaws[logicalLawsRandom])
+    if (minNumValue < -1000 || maxNumValue > 1000) {
+        alert('Числа поменьше пожалуйста');
+        return;
+    }
 
+    const randomNumber = getRandomInteger(minNumValue, maxNumValue);
 
-
+    document.querySelector('.number').textContent = randomNumber;
+});
