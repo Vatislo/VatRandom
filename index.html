@@ -15,26 +15,35 @@
         <span>
             <span class="copy-left-icon">
                 <i class='bx bx-copyright'></i>
-                COPY LEFT; GNU GPL V3
+                GNU GPL V3
             </span>
         </span>
-        <span>
             <a href="https://github.com/Vatislo">Разработчик</a>
-        </span>
     </header>
     <main>
-        <div class="control-panel container">
-            <form>
-                <div class="number">
-                    (;
-                </div>
-                <div class="max-min">
-                    <input id="min-num" type="text" placeholder="Минимальное число">
-                    <input id="max-num" type="text" placeholder="Максимальное число">
-                </div>
-                <button id="random-button" type="button">ЗГЕНЕРИРОВАТЬ</button>
-            </form>
-        </div>
+        <table class="control-panel container">
+            <tr>
+                <th colspan="2">
+                    <div class="number">
+                        (;
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <td><input id="min-num" type="text" placeholder="Минимальное число"></td>
+                <td><input id="max-num" type="text" placeholder="Максимальное число"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <textarea placeholder="Исключающиеся числа, писать через пробел." id="exceptions"></textarea>
+                </td>
+            </tr>
+            <tr>-
+                <td colspan="2">
+                    <button id="random-button">СГЕНЕРИРОВАТЬ</button>
+                </td>
+            </tr>
+        </table>
     </main>
     <script src="./script.js"> </script>
 </body>
